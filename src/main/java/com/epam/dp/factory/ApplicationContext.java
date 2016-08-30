@@ -12,7 +12,7 @@ public class ApplicationContext {
     private Map<String, BeanPostProccessor> ingectors = new HashMap<>();
 
     public ApplicationContext(BeanFactory beanFactory) {
-        this.beanFactory=beanFactory;
+        this.beanFactory = beanFactory;
     }
 
 
@@ -24,21 +24,21 @@ public class ApplicationContext {
         }
     }
 
-    public void toIngect(){
-        Collection<BeanPostProccessor> ingectorsBean=ingectors.values();
-        Collection<SomeClass> beansForIngect=beanFactory.getAllBeans();
+    public void toIngect() {
+        Collection<BeanPostProccessor> ingectorsBean = ingectors.values();
+        Collection<SomeClass> beansForIngect = beanFactory.getAllBeans();
         for (BeanPostProccessor beanPostProccessor : ingectorsBean) {
             for (SomeClass bean : beansForIngect) {
-            beanPostProccessor.inject(bean);
+                beanPostProccessor.inject(bean);
             }
         }
     }
 
-    public Objects getBean(String id){
-        return (Objects) beanFactory.getBean(id);
+    public MyClass getBean(String id) {
+        return beanFactory.getBean(id);
     }
 
-    private void init (Class<? extends BeanPostProccessor> toInit){
+    private void init(Class<? extends BeanPostProccessor> toInit) {
         try {
             ingectors.put(toInit.getName(), toInit.newInstance());
         } catch (InstantiationException e) {

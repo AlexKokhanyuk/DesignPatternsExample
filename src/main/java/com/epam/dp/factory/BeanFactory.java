@@ -25,8 +25,8 @@ public class BeanFactory {
         }
     }
 
-    public Object getBean(final String id) {
-        return beans.get(id);
+    public MyClass getBean(final String id) {
+        return (MyClass) beans.get(id);
     }
 
     public Collection getAllBeans() {

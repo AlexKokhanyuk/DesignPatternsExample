@@ -12,7 +12,7 @@ public class Main {
 
         ApplicationContext applicationContext=new ApplicationContext(new BeanFactory());
         applicationContext.toIngect();
-     //   SomeClass someClass = applicationContext.getBean("SomeClass");
-        //System.out.println(someClass.getTest());
+        MyClass someClass = applicationContext.getBean("SomeClass");
+        System.out.println(someClass.getTest());
     }
 }
